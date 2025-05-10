@@ -11,9 +11,9 @@ class Effect(ABC):
         self.height = opennedImage.size[1]
         self.pix = opennedImage.load()
         self.Iteration()
-        opennedImage.save("result.jpg", "JPEG")
+        opennedImage.save("result.png", "PNG")
         del self.draw
-        return "result.jpg"
+        return "result.png"
 
     @abstractmethod
     def Iteration(self):
