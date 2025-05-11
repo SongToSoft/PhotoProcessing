@@ -7,6 +7,7 @@ from Effects.Grayscale import Grayscale
 from Effects.Sepia import Sepia
 from Effects.Negative import Negative
 from Effects.Noise import Noise
+from Effects.Blur import Blur
 from Effects.Brightness import Brightness
 
 class Window:
@@ -20,7 +21,6 @@ class Window:
         self.openImageName = ""
         self.saveImageName = ""
 
-        #Create buttons
         buttonFrame = Frame(self.root)
         canvasFrame = Frame(self.root)
 
@@ -29,6 +29,7 @@ class Window:
         sepiaButton = self.CreateButton(buttonFrame, "Sepia", self.Sepia)
         negativeButton = self.CreateButton(buttonFrame, "Negative", self.Negative)
         noiseButton = self.CreateButton(buttonFrame, "Noise", self.Noise)
+        blurButton = self.CreateButton(buttonFrame, "Blur", self.Blur)
         brightnessButton = self.CreateButton(buttonFrame, "Brightness", self.Brightness)
         darkenButton = self.CreateButton(buttonFrame, "Darken", self.Darken)
         saveFileButton = self.CreateButton(buttonFrame, "Save File", self.SaveFile)
@@ -38,11 +39,11 @@ class Window:
         sepiaButton.pack(side="left")
         negativeButton.pack(side="left")
         noiseButton.pack(side="left")
+        blurButton.pack(side="left")
         brightnessButton.pack(side="left")
         darkenButton.pack(side="left")
         saveFileButton.pack(side="left")
 
-        # Create start image
         self.defaultCanvas = tkinter.Canvas(canvasFrame, width=self.imageWidth, height=self.imageHeight, bg="lightblue")
         self.defaultCanvas.pack(side="left")
 
@@ -94,6 +95,9 @@ class Window:
 
     def Noise(self):
         self.ApplyEffect(Noise)
+    
+    def Blur(self):
+        self.ApplyEffect(Blur, 5)
 
     def Brightness(self):
         self.ApplyEffect(Brightness, 100)

@@ -5,16 +5,17 @@ from PIL import ImageDraw
 
 class Effect(ABC):
 
-    def Execute(self, opennedImage):
-        self.draw = ImageDraw.Draw(opennedImage)
-        self.width = opennedImage.size[0]
-        self.height = opennedImage.size[1]
-        self.pix = opennedImage.load()
-        self.Iteration()
-        opennedImage.save("result.png", "PNG")
+    def Execute(self, processingImage):
+        self.processingImage = processingImage
+        self.draw = ImageDraw.Draw(processingImage)
+        self.width = processingImage.size[0]
+        self.height = processingImage.size[1]
+        self.pix = processingImage.load()
+        self.Processing()
+        processingImage.save("result.png", "PNG")
         del self.draw
         return "result.png"
 
     @abstractmethod
-    def Iteration(self):
+    def Processing(self):
         pass

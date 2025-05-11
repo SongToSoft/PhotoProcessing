@@ -4,7 +4,7 @@ class Sepia(Effect):
     def __init__(self):
         self.depth = 10
 
-    def Iteration(self):
+    def Processing(self):
         for i in range(self.width):
             for j in range(self.height):
                 r, g, b = self.pix[i, j]

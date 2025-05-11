@@ -5,7 +5,7 @@ class Noise(Effect):
     def __init__(self):
         self.factor = 10
 
-    def Iteration(self):
+    def Processing(self):
         for i in range(self.width):
             for j in range(self.height):
                 rand = random.randint(-self.factor, self.factor)

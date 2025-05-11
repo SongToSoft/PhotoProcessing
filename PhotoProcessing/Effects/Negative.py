@@ -1,8 +1,7 @@
 from Effects.Effect import Effect
 
 class Negative(Effect):
-
-    def Iteration(self):
+    def Processing(self):
         for i in range(self.width):
             for j in range(self.height):
                 r, g, b = self.pix[i, j]
